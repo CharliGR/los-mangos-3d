@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#17251d"><meta name="description" content="Explora la lotización Los Mangos en 3D. Gira el plano, acércate a los lotes y descubre sus áreas comunes.">
+<title>Los Mangos · Visor 3D</title>
+<link rel="stylesheet" href="./styles.css"><script type="module" src="./model-viewer.min.js"></script><script type="module" src="./app.js"></script>
+</head>
+<body>
+<header><div class="brand"><span class="mark" aria-hidden="true">M</span><div><strong>LOS MANGOS</strong><span>EXPLORA LA LOTIZACIÓN</span></div></div><span class="tag"><i></i> Vista interactiva 3D</span></header>
+<main>
+<model-viewer id="visor" src="./los-mangos.glb" poster="./vista-previa.webp" alt="Modelo tridimensional de la lotización Los Mangos, con lotes identificados, calles, parques, cancha y acceso." camera-controls disable-tap touch-action="none" camera-orbit="-30deg 38deg 105%" min-camera-orbit="auto 0deg 6%" max-camera-orbit="auto 85deg 180%" field-of-view="35deg" min-field-of-view="15deg" max-field-of-view="55deg" environment-image="neutral" exposure="1.05" shadow-intensity="0.7" shadow-softness="0.8" interaction-prompt="none" loading="eager" reveal="auto">
+ <div class="loading" slot="progress-bar" id="loading" role="status"><div class="spinner"></div><strong>Preparando tu recorrido</strong><span id="progress">Cargando el modelo 3D…</span><div class="track"><i id="bar"></i></div></div>
+</model-viewer>
+<div class="intro" id="intro"><span class="eyebrow">ELIGE TU PUNTO DE VISTA</span><h1>Acércate a tu próximo lugar.</h1><p>Gira el modelo y explora cada rincón.<br>Toca un lote para consultar sus medidas.</p></div>
+<div class="error" id="error" role="alert" hidden><h2>No se pudo abrir el modelo 3D</h2><p>Comprueba tu conexión y vuelve a intentarlo. También puedes consultar la imagen del conjunto.</p><button id="retry">Reintentar</button><a href="./vista-previa.webp" target="_blank" rel="noopener">Ver imagen</a></div>
+<aside id="lot-card" hidden aria-live="polite"><button id="close-card" aria-label="Cerrar ficha del lote">×</button><span class="eyebrow">LOTE SELECCIONADO</span><h2 id="lot-name"></h2><div class="measurements"><div><span>Área del plano</span><strong id="lot-area"></strong></div><div><span>Perímetro del plano</span><strong id="lot-perimeter"></strong></div></div><p>Consulta la disponibilidad con tu asesor.</p></aside>
+<nav class="toolbar" aria-label="Controles del modelo"><div class="views"><button id="perspective" class="active" aria-pressed="true">Perspectiva</button><button id="top" aria-pressed="false">Vista superior</button></div><div class="divider"></div><button id="zoom-in" class="icon" aria-label="Acercar" title="Acercar">+</button><button id="zoom-out" class="icon" aria-label="Alejar" title="Alejar">−</button><button id="reset" class="icon" aria-label="Restablecer vista" title="Restablecer vista">↺</button><button id="fullscreen" class="icon" aria-label="Pantalla completa" title="Pantalla completa">⛶</button></nav>
+<div class="hint"><span class="desktop-hint">Arrastra para girar · Rueda para acercarte · Clic derecho para desplazar</span><span class="mobile-hint">Un dedo para girar · Dos dedos para acercar o desplazar</span></div>
+</main>
+<noscript><p class="no-js">Activa JavaScript para explorar el modelo. <a href="./vista-previa.webp">Ver imagen del conjunto</a></p></noscript>
+</body></html>
+
